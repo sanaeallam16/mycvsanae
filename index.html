@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sanae Allam – Academic Profile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#f7f8fc;
+      --card:#ffffff;
+      --accent:#3341c8;
+      --accent-soft:#e9ebff;
+      --text:#111;
+      --muted:#6b7280;
+      --border:#e5e7eb;
+      --nav:#ffffff;
+      --nav-border:#d5d7e0;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0;}
+
+    body{
+      font-family:"Manrope",system-ui;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.7;
+      scroll-behavior:smooth;
+    }
+
+    /* ---------- TOP NAVBAR ---------- */
+    nav{
+      position:fixed;
+      top:0;left:0;right:0;
+      background:var(--nav);
+      border-bottom:1px solid var(--nav-border);
+      padding:.8rem 2rem;
+      z-index:999;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    nav .nav-left{
+      font-size:1.2rem;
+      font-weight:800;
+      color:var(--accent);
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:1.6rem;
+    }
+
+    nav a{
+      color:#333;
+      font-weight:600;
+      font-size:.95rem;
+      text-decoration:none;
+    }
+
+    nav a:hover{color:var(--accent);}
+
+    /* ---------- MAIN LAYOUT ---------- */
+    .page{
+      max-width:1250px;
+      margin:7rem auto 4rem;
+      padding:0 1.5rem;
+      display:grid;
+      grid-template-columns:320px 1fr;
+      gap:2.2rem;
+    }
+
+    /* ---------- SIDEBAR ---------- */
+    .sidebar{
+      background:linear-gradient(160deg,#141b4f,#3b4de2);
+      color:#fff;
+      border-radius:1.3rem;
+      padding:2rem 1.7rem 2.4rem;
+      position:sticky;
+      top:6.2rem;
+      height:max-content;
+      box-shadow:0 18px 40px rgba(0,0,0,0.15);
+      transition:.3s ease;
+    }
+
+    .sidebar:hover{
+      transform:translateY(-4px);
+      box-shadow:0 22px 45px rgba(0,0,0,0.18);
+    }
+
+    .name{font-size:1.9rem;font-weight:800;margin-bottom:.2rem;}
+    .role{font-size:1rem;opacity:.95;margin-bottom:.4rem;}
+    .location{font-size:.9rem;opacity:.85;margin-bottom:1.4rem;}
+
+    .chip{
+      display:inline-block;
+      font-size:.78rem;
+      padding:.27rem .6rem;
+      border-radius:999px;
+      background:rgba(255,255,255,0.12);
+      margin-right:.35rem;
+      margin-bottom:.35rem;
+      border:1px solid rgba(255,255,255,0.24);
+    }
+
+    .section-title-small{
+      font-size:.85rem;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      margin:1.5rem 0 .7rem;
+      opacity:.85;
+    }
+
+    .contact-list{list-style:none;font-size:.9rem;}
+    .contact-list li+li{margin-top:.33rem;}
+    .contact-list a{color:#fff;text-decoration:none;}
+    .contact-list a:hover{text-decoration:underline;}
+
+    .tagline{
+      margin-top:1rem;
+      padding-top:1rem;
+      border-top:1px solid rgba(255,255,255,0.25);
+      opacity:.9;
+      font-size:.88rem;
+    }
+
+    /* ---------- CONTENT ---------- */
+    .content{display:flex;flex-direction:column;gap:1.2rem;}
+
+    .card{
+      background:var(--card);
+      border-radius:1.2rem;
+      padding:1.7rem 1.8rem;
+      border:1px solid var(--border);
+      box-shadow:0 10px 22px rgba(0,0,0,0.04);
+      transition:.25s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-3px);
+      box-shadow:0 16px 40px rgba(0,0,0,0.05);
+    }
+
+    .card-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:1rem;
+    }
+
+    .card-title{
+      font-size:1.25rem;
+      font-weight:800;
+    }
+
+    .pill{
+      background:var(--accent-soft);
+      color:var(--accent);
+      padding:.25rem .7rem;
+      font-size:.75rem;
+      border-radius:999px;
+      font-weight:700;
+    }
+
+    .muted{color:var(--muted);font-size:.95rem;}
+    .list{list-style:none;margin-top:.35rem;font-size:.92rem;}
+    .list li+li{margin-top:.65rem;}
+
+    .item-title{font-weight:700;font-size:1rem;}
+    .item-sub{color:var(--muted);font-size:.9rem;margin-top:.17rem;}
+    .item-meta{font-size:.83rem;color:var(--muted);margin-top:.12rem;}
+
+    /* ---------- TWO COLUMNS ---------- */
+    .two-cols{
+      display:grid;
+      grid-template-columns:1.2fr 1fr;
+      gap:1.4rem;
+    }
+
+    /* ---------- COLLAPSIBLE SECTIONS ---------- */
+    details summary{
+      cursor:pointer;
+      font-weight:700;
+      margin-bottom:.6rem;
+    }
+    details summary:hover{color:var(--accent);}
+
+    /* ---------- MOBILE ---------- */
+    @media(max-width:1000px){
+      .page{grid-template-columns:1fr;}
+      .sidebar{position:static;}
+      nav ul{display:none;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav>
+  <div class="nav-left">Sanae Allam</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#pubs">Publications</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ================= PAGE ================= -->
+<div class="page">
+
+  <!-- ========== SIDEBAR ========== -->
+  <aside class="sidebar" id="contact">
+    <div class="name">Sanae Allam</div>
+    <div class="role">PhD Student in Industrial Engineering</div>
+    <div class="location">ENSA El Jadida – Université Chouaïb Doukkali</div>
+
+    <div class="section-title-small">Research focus</div>
+    <span class="chip">Vaccine Lifecycle</span>
+    <span class="chip">PLM & GxP</span>
+    <span class="chip">AI Auditing</span>
+    <span class="chip">Data Integrity</span>
+    <span class="chip">IoT Systems</span>
+
+    <div class="section-title-small">Contact</div>
+    <ul class="contact-list">
+      <li><strong>Email:</strong> <a href="mailto:allam.s@ucd.ac.ma">allam.s@ucd.ac.ma</a></li>
+      <li><strong>LinkedIn:</strong> <a target="_blank" href="https://www.linkedin.com/in/sanaeallam16898">Profile</a></li>
+      <li><strong>ResearchGate:</strong> <a target="_blank" href="https://www.researchgate.net/profile/Sanae-Allam-2">Research</a></li>
+      <li><strong>ORCID:</strong> <a target="_blank" href="https://orcid.org/0009-0000-4417-8028">0009-0000-4417-8028</a></li>
+    </ul>
+
+    <p class="tagline">
+      Working on <strong>Vaccine Lifecycle Management 4.0</strong>,
+      <strong>AI-assisted auditing</strong>,
+      and <strong>industrial IoT systems</strong>.
+    </p>
+  </aside>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main class="content">
+
+    <!-- ABOUT -->
+    <section class="card" id="about">
+      <div class="card-header">
+        <div class="card-title">About Me</div>
+      </div>
+      <p class="muted">
+        PhD candidate in Industrial Engineering focusing on <strong>Vaccine Lifecycle Management (VLM)</strong>,
+        <strong>data integrity & GxP compliance</strong>, <strong>AI-assisted auditing</strong>,
+        and IoT-based intelligent systems. I also teach relational databases and manage several IoT and digital auditing projects.
+      </p>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="card" id="education">
+      <div class="card-header">
+        <div class="card-title">Education & Academic Roles</div>
+        <div class="pill">Academic</div>
+      </div>
+
+      <div class="two-cols">
+        <div>
+          <h3>Education</h3>
+          <ul class="list">
+            <li>
+              <div class="item-title">PhD in Industrial Engineering</div>
+              <div class="item-sub">Université Chouaïb Doukkali · 2021–present</div>
+              <div class="item-meta">Thesis on Vaccine Lifecycle Management 4.0</div>
+            </li>
+            <li>
+              <div class="item-title">Engineering Diploma</div>
+              <div class="item-sub">ENSA El Jadida · 2016–2021</div>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Teaching</h3>
+          <ul class="list">
+            <li>
+              <div class="item-title">Lecturer – Databases</div>
+              <div class="item-sub">SQL · MERISE · UML</div>
+            </li>
+            <li>
+              <div class="item-title">Professor – Project Management</div>
+              <div class="item-sub">Master program · Agile/Lean</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="card" id="projects">
+      <div class="card-header">
+        <div class="card-title">Projects</div>
+        <div class="pill">Research & Industry</div>
+      </div>
+
+      <ul class="list">
+        <li>
+          <div class="item-title">AuditBot 4.0 – AI-Assisted Auditing</div>
+          <div class="item-sub">React · FastAPI · MySQL · Wazuh · immudb</div>
+        </li>
+        <li>
+          <div class="item-title">Smart Water Management System</div>
+          <div class="item-sub">LoRa · ESP32 · IoT architecture</div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section class="card" id="pubs">
+      <div class="card-header">
+        <div class="card-title">Publications</div>
+        <div class="pill">Journal · Book · IEEE</div>
+      </div>
+
+      <details open>
+        <summary>Journal Articles</summary>
+        <ul class="list">
+          <li>Systematic review on VLM · IJPR (2024)</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Book Chapters</summary>
+        <ul class="list">
+          <li>Springer Chapter on Product Data Model (2025)</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Conference Papers</summary>
+        <ul class="list">
+          <li>SKIMA 2023 · IEEE</li>
+          <li>LOGISTIQUA 2024 · IEEE</li>
+        </ul>
+      </details>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="card" id="skills">
+      <div class="card-header">
+        <div class="card-title">Skills</div>
+        <div class="pill">Technical & Soft</div>
+      </div>
+
+      <div class="two-cols">
+        <div>
+          <h3>Technical</h3>
+          <p class="muted">Python · SQL · React · Docker · UML · PLM · ESP32 · LoRa</p>
+        </div>
+        <div>
+          <h3>Research & Soft</h3>
+          <p class="muted">Scientific writing · Data integrity · Project coordination</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+</body>
+</html>
